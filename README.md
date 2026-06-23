@@ -1,5 +1,3 @@
-# ShopEase
-A responsive E-commerce interface built with HTML, CSS, and vanilla JavaScript. Features include product listing, detail view navigation, and interactive UI components.
 # ShopEase E-commerce Project
 
 A clean and modern e-commerce storefront project designed to showcase product management, responsive design, and dynamic UI interaction.
@@ -15,8 +13,7 @@ This project was developed to practice frontend core concepts, including:
 - **CSS3** (Flexbox/Grid, Responsive Design)
 - **JavaScript** (DOM Manipulation, Event Handling)
 
-## 📸 Screenshots
-*(هنا يمكنك إضافة الصور التي أرفقتها سابقاً)*
+## 📸 Screenshots)
 - Main Product Listing: `[Capture d’écran 2026-06-16 163837.jpg]`
 - Product Detail View: `[Capture d’écran 2026-06-22 215526.jpg]`
 
