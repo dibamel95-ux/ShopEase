@@ -16,7 +16,7 @@ function display(arr) {
     const myBtn = card.querySelector(".btn-buy")
     myBtn.addEventListener("click" , (event) => {
       event.stopPropagation()
-      ])
+    })
     container.appendChild(card);
   });
 }
