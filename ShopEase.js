@@ -16,6 +16,18 @@ function display(arr) {
     const myBtn = card.querySelector(".btn-buy")
     myBtn.addEventListener("click" , (event) => {
       event.stopPropagation()
+      let newObj = {
+        id: prod.id,
+        quantity: 1,
+      };
+      let exist = dataPro.find((itm) => itm.id === newObj.id);
+      if (exist) {
+        exist.quantity++;
+      } else {
+        dataPro.push(newObj);
+      }
+      localStorage.setItem(`cartItems`, JSON.stringify(dataPro));
+      updateCartCount();
     })
     container.appendChild(card);
   });
@@ -58,3 +70,11 @@ function categorySort(value) {
   let filtred = allProducts.filter((prod) => prod.category === value);
   display(filtred);
 }
+function updateCartCount() {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  let total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  document.getElementById("cart-count").innerHTML = total;
+}
+
