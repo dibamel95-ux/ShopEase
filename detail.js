@@ -23,9 +23,24 @@ function displayProduct(product) {
 </div>
 <h3>Product Details</h3>
  <p>${product.description}</p>
- <button> add to cart </button>
+ <button class="btn"> add to cart </button>
 </div>
- `;
+ `
+    let myBtn = container.querySelector(`.btn`);
+  myBtn.addEventListener("click", () => {
+    let newObj = {
+      id: product.id,
+      quantity: 1,
+    };
+    let exist = dataPro.find((itm) => itm.id === newObj.id);
+    if (exist) {
+      exist.quantity++;
+    } else {
+      dataPro.push(newObj);
+    }
+    localStorage.setItem(`cartItems`, JSON.stringify(dataPro));
+    updateCartCount();
+  })
 }
 function relatedPro(arr) {
   let container = document.getElementById(`relatePro`);
@@ -40,4 +55,11 @@ function relatedPro(arr) {
   `;
     container.appendChild(card);
   });
+}
+function updateCartCount() {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  let total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  document.getElementById("cart-count").innerHTML = total;
 }
