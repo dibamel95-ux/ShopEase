@@ -78,4 +78,7 @@ function updateCartCount() {
 
   document.getElementById("cart-count").innerHTML = total;
 }
-
+let cart = document.querySelector(`.fa-cart-shopping`);
+cart.addEventListener("click", () => {
+  window.location.href = `cart.html`;
+});
