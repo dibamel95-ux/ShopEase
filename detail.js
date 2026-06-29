@@ -1,3 +1,4 @@
+let dataPro = JSON.parse(localStorage.getItem(`cartItems`)) || [];
 async function getProduct() {
   let params = new URLSearchParams(window.location.search);
   let id = params.get("id");
