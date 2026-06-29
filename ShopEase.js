@@ -1,3 +1,4 @@
+let dataPro = JSON.parse(localStorage.getItem(`cartItems`)) || [];
 function display(arr) {
   let container = document.getElementById(`container`);
   container.innerHTML = "";
