@@ -81,3 +81,12 @@ let cart = document.querySelector(`.fa-cart-shopping`);
 cart.addEventListener("click", () => {
   window.location.href = `cart.html`;
 });
+function showToast() {
+  const toast = document.getElementById("toast");
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
