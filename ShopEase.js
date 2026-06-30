@@ -9,7 +9,7 @@ function display(arr) {
     <img src="${prod.thumbnail}">
     <h3>${prod.title}</h3>
     <span class="price">Price: ${prod.price} $</span>
-    <button class="btn-buy">add to cart</button>
+    <button class="btnBuy">add to cart</button>
     `;
     card.addEventListener("click", () => {
       window.location.href = `detail.html?id=${prod.id}`;
