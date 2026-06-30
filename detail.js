@@ -41,6 +41,7 @@ function displayProduct(product) {
     }
     localStorage.setItem(`cartItems`, JSON.stringify(dataPro));
     updateCartCount();
+    showToast()
   })
 }
 function relatedPro(arr) {
@@ -59,8 +60,14 @@ function relatedPro(arr) {
 }
 function updateCartCount() {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
   let total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
   document.getElementById("cart-count").innerHTML = total;
+}
+updateCartCount()
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
 }
