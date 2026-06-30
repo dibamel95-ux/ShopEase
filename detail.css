@@ -11,6 +11,41 @@ body {
   flex-direction: column;
   gap: 30px;
 }
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.cart {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s;
+  border: 1px black solid;
+}
+.cart:hover {
+  transform: scale(1.05);
+}
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  background: #ff4d4d;
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
 #container {
   max-width: 1000px;
   margin: auto;
