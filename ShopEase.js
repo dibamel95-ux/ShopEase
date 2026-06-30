@@ -38,6 +38,7 @@ let originalPro = [];
 async function getData() {
   let res = await fetch(`https://dummyjson.com/products`);
   let data = await res.json();
+  console.log(data)
   allProducts = data.products;
   originalPro = [...data.products];
   display(allProducts);
