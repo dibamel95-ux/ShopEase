@@ -145,15 +145,30 @@ header {
   transition: 0.25s;
   background-color: white;
 }
+.toast {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
+  background: #f4f2f2;
+  padding: 50px 50px;
+  border-radius: 8px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+}
 .btn-buy:hover {
   transform: translateY(-2px);
   opacity: 0.9;
 }
-@media (max-width: 900px) {
-  header {
-    flex-wrap: wrap;
-  }
   #btnSearch {
     max-width: 100%;
     width: 100%;
@@ -162,3 +177,7 @@ header {
     width: 100%;
   }
 }
+@media (max-width: 900px) {
+  header {
+    flex-wrap: wrap;
+  }
