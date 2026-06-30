@@ -73,11 +73,10 @@ function categorySort(value) {
 }
 function updateCartCount() {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
   let total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
   document.getElementById("cart-count").innerHTML = total;
 }
+updateCartCount()
 let cart = document.querySelector(`.fa-cart-shopping`);
 cart.addEventListener("click", () => {
   window.location.href = `cart.html`;
