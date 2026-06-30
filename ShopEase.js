@@ -14,7 +14,7 @@ function display(arr) {
     card.addEventListener("click", () => {
       window.location.href = `detail.html?id=${prod.id}`;
     });
-    const myBtn = card.querySelector(".btn-buy")
+    const myBtn = card.querySelector(".btnBuy")
     myBtn.addEventListener("click" , (event) => {
       event.stopPropagation()
       let newObj = {
