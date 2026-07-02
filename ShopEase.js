@@ -29,6 +29,7 @@ function display(arr) {
       }
       localStorage.setItem(`cartItems`, JSON.stringify(dataPro));
       updateCartCount();
+      showToast();
     })
     container.appendChild(card);
   });
