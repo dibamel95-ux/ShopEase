@@ -78,7 +78,7 @@ function updateCartCount() {
   document.getElementById("cart-count").innerHTML = total;
 }
 updateCartCount()
-let cart = document.querySelector(`.fa-cart-shopping`);
+let cart = document.querySelector(`.cart`);
 cart.addEventListener("click", () => {
   window.location.href = `cart.html`;
 });
