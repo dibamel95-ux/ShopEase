@@ -80,3 +80,7 @@ function showToast() {
     toast.classList.remove("show");
   }, 2000);
 }
+let cart = document.querySelector(`.cart`);
+cart.addEventListener("click", () => {
+  window.location.href = `cart.html`;
+});
