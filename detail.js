@@ -82,5 +82,5 @@ function showToast() {
 }
 let cart = document.querySelector(`.cart`);
 cart.addEventListener("click", () => {
-  window.open(`cart.html)`;
+  window.location.href = `cart.html`;
 });
