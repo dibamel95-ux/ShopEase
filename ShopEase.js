@@ -12,7 +12,7 @@ function display(arr) {
     <button class="btnBuy">add to cart</button>
     `;
     card.addEventListener("click", () => {
-      window.open(`detail.html?id=${prod.id}`);
+      window.location.href =`detail.html?id=${prod.id}`;
     });
     const myBtn = card.querySelector(".btnBuy")
     myBtn.addEventListener("click" , (event) => {
@@ -81,7 +81,7 @@ function updateCartCount() {
 updateCartCount()
 let cart = document.querySelector(`.cart`);
 cart.addEventListener("click", () => {
-  window.open(`cart.html`);
+  window.location.href = `cart.html`;
 });
 function showToast() {
   const toast = document.getElementById("toast");
