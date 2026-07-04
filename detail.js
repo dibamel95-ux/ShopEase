@@ -26,8 +26,8 @@ function displayProduct(product) {
  <p>${product.description}</p>
  <button class="btn"> add to cart </button>
 </div>
- `
-    let myBtn = container.querySelector(`.btn`);
+ `;
+  let myBtn = container.querySelector(`.btn`);
   myBtn.addEventListener("click", () => {
     let newObj = {
       id: product.id,
@@ -41,8 +41,8 @@ function displayProduct(product) {
     }
     localStorage.setItem(`cartItems`, JSON.stringify(dataPro));
     updateCartCount();
-    showToast()
-  })
+    showToast();
+  });
 }
 function relatedPro(arr) {
   let container = document.getElementById(`relatePro`);
@@ -55,6 +55,9 @@ function relatedPro(arr) {
   <h3>${p.title}</h3>
   <span class="price">${p.price}$</span>  
   `;
+    card.addEventListener("click", () => {
+      window.location.href = `detail.html?id=${p.id}`;
+    });
     container.appendChild(card);
   });
 }
@@ -63,14 +66,7 @@ function updateCartCount() {
   let total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   document.getElementById("cart-count").innerHTML = total;
 }
-updateCartCount()
-function showToast() {
-  const toast = document.getElementById("toast");
-  toast.classList.add("show");
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2000);
-}
+updateCartCount();
 function showToast() {
   const toast = document.getElementById("toast");
 
@@ -83,4 +79,8 @@ function showToast() {
 let cart = document.querySelector(`.cart`);
 cart.addEventListener("click", () => {
   window.location.href = `cart.html`;
+});
+let mainPage = document.querySelector(`.logo`);
+mainPage.addEventListener("click", () => {
+  window.location.href = `ShopEase.html`;
 });
