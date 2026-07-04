@@ -1,34 +1,41 @@
-let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-let cartProducts = [];
+let cartItem = JSON.parse(localStorage.getItem(`cartItems`)) || [];
+let cartProduct = [];
 async function getData() {
-  for (let item of cartItems) {
+  for (let item of cartItem) {
     let res = await fetch(`https://dummyjson.com/products/${item.id}`);
-    let product = await res.json();
-    cartProducts.push({
-      ...product,
+    let data = await res.json();
+    cartProduct.push({
+      ...data,
       quantity: item.quantity,
     });
   }
-  display(cartProducts);
+  display(cartProduct);
 }
 getData();
 function display(arr) {
-  const container = document.getElementById("container");
+  let container = document.getElementById(`container`);
   container.innerHTML = "";
-  arr.forEach((product) => {
-    container.innerHTML += `
-       <td><img src="${product.thumbnail}"></td> 
-       <td><h3>${product.title}</h3></td> 
-       <td><p>Price: ${product.price}$</p></td> 
-        <td><p>Quantity: ${product.quantity}</p></td>
-        <td><p>Total: ${product.price * product.quantity}$</p></td>
-        <td> <button class="delete" onclick="delPro()">
-        <span class="material-symbols-outlined">delete</span></button></td>
-    `;
+  arr.forEach((prod) => {
+    container.innerHTML += ` <tr>
+  <td> <img src="${prod.thumbnail}"></td>
+  <td><h3>${prod.title}</h3></td>
+  <td><p>Price: ${prod.price}</p></td>
+  <td><p> Quantity: ${prod.quantity}</p></td>
+  <td><p>Total: ${prod.price * prod.quantity}</p></td>
+  <td><button class="delete" onclick="deleteProduct(${prod.id})"> <span class="material-symbols-outlined">delete</span></button></td>
+  </tr>`;
+    let cartTotal = document.getElementById("totalPrice");
+    let result = 0;
+    arr.forEach((product) => {
+      result += product.price * product.quantity;
+    });
+    cartTotal.textContent = `$${result.toFixed(2)}`;
   });
 }
-function delPro() {
-  cartProducts.splice(product, 1);
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  display(cartProducts);
+
+function deleteProduct(id) {
+  cartProduct = cartProduct.filter((product) => product.id !== id);
+  cartItem = cartItem.filter((item) => item.id !== id);
+  localStorage.setItem("cartItems", JSON.stringify(cartItem));
+  display(cartProduct);
 }
