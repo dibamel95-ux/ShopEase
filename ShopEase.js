@@ -9,49 +9,56 @@ function display(arr) {
     <img src="${prod.thumbnail}">
     <h3>${prod.title}</h3>
     <span class="price">Price: ${prod.price} $</span>
-    <button class="btnBuy">add to cart</button>
+    <button class="btnBuy" >add to cart</button>
     `;
     card.addEventListener("click", () => {
-      window.location.href =`detail.html?id=${prod.id}`;
+      window.location.href = `detail.html?id=${prod.id}`;
     });
-    const myBtn = card.querySelector(".btnBuy")
-    myBtn.addEventListener("click" , (event) => {
-      event.stopPropagation()
+    const myBtn = card.querySelector(".btnBuy");
+    myBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
       let newObj = {
         id: prod.id,
         quantity: 1,
       };
-      let exist = dataPro.find((itm) => itm.id === newObj.id);
+      let exist = dataPro.find((item) => item.id === newObj.id);
       if (exist) {
         exist.quantity++;
       } else {
         dataPro.push(newObj);
       }
-      localStorage.setItem(`cartItems`, JSON.stringify(dataPro));
+      localStorage.setItem("cartItems", JSON.stringify(dataPro));
       updateCartCount();
       showToast();
-    })
+    });
     container.appendChild(card);
   });
 }
 let allProducts = [];
 let originalPro = [];
 async function getData() {
-  let res = await fetch(`https://dummyjson.com/products`);
-  let data = await res.json();
-  allProducts = data.products;
-  originalPro = [...data.products];
-  display(allProducts);
+  try {
+    let res = await fetch(`https://dummyjson.com/products`);
+    let data = await res.json();
+    allProducts = data.products;
+    originalPro = [...data.products];
+    display(allProducts);
+  } catch (error) {
+    const container = document.getElementById("container");
+    console.error(error);
+    container.innerHTML = `
+    <h2>Something went wrong.</h2>
+    <p>Please check your internet connection and try again.</p>
+  `;
+  }
 }
 getData();
-
 function searchData(value) {
   let newArr = allProducts.filter((product) =>
     product.title.toLowerCase().includes(value.toLowerCase()),
   );
   display(newArr);
 }
-
 function priceSort(value) {
   if (value === ``) {
     display(originalPro);
@@ -72,21 +79,19 @@ function categorySort(value) {
   let filtred = allProducts.filter((prod) => prod.category === value);
   display(filtred);
 }
-function updateCartCount() {
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  let total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  document.getElementById("cart-count").innerHTML = total;
-}
-updateCartCount()
 let cart = document.querySelector(`.cart`);
 cart.addEventListener("click", () => {
   window.location.href = `cart.html`;
 });
+function updateCartCount() {
+  let items = JSON.parse(localStorage.getItem(`cartItems`)) || [];
+  let total = dataPro.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById(`cart-count`).innerHTML = total;
+}
+updateCartCount();
 function showToast() {
   const toast = document.getElementById("toast");
-
   toast.classList.add("show");
-
   setTimeout(() => {
     toast.classList.remove("show");
   }, 2000);
