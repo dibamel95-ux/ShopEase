@@ -37,5 +37,7 @@ function deleteProduct(id) {
   cartProduct = cartProduct.filter((product) => product.id !== id);
   cartItem = cartItem.filter((item) => item.id !== id);
   localStorage.setItem("cartItems", JSON.stringify(cartItem));
+  let cartTotal = document.getElementById("totalPrice");
+  cartTotal.innerHTML = "0$";
   display(cartProduct);
 }
