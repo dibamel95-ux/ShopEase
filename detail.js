@@ -82,5 +82,5 @@ cart.addEventListener("click", () => {
 });
 let mainPage = document.querySelector(`.logo`);
 mainPage.addEventListener("click", () => {
-  window.location.href = `index.html`;
+  window.location.href (`index.html`);
 });
