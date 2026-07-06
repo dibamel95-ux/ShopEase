@@ -26,6 +26,7 @@ header {
   font-weight: bold;
   color: black;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 .btnSearch {
   max-width: 400px;
