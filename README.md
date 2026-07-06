@@ -13,14 +13,17 @@ This project was developed to practice frontend core concepts, including:
 - **CSS3** (Flexbox/Grid, Responsive Design)
 - **JavaScript** (DOM Manipulation, Event Handling)
 
-## 📸 Screenshots)
-- Main Product Listing: `[Capture d’écran 2026-06-16 163837.jpg]`
-- Product Detail View: `[Capture d’écran 2026-06-22 215526.jpg]`
-
 ## 💡 Key Features
 - **Responsive Grid**: Automatically adapts to screen sizes.
 - **Product Details**: Dedicated page for individual product information.
 - **Clean UI**: Minimalist design focused on product clarity.
 
 ## 📝 What I learned
-This project helped me understand the importance of logical separation in code (following the 'nano banana' practice for simple, scalable components).
+- Fetch API & async/await
+- DOM Manipulation
+- localStorage
+- URLSearchParams
+- Shopping Cart Logic
+- Product Details Page
+- Dynamic Rendering
+- Event Handling
