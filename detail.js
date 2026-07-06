@@ -56,7 +56,7 @@ function relatedPro(arr) {
   <span class="price">${p.price}$</span>  
   `;
     card.addEventListener("click", () => {
-      window.location.href(`detail.html?id=${p.id}`);
+      window.location.href = `detail.html?id=${p.id}`;
     });
     container.appendChild(card);
   });
