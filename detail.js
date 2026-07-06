@@ -78,9 +78,9 @@ function showToast() {
 }
 let cart = document.querySelector(`.cart`);
 cart.addEventListener("click", () => {
-  window.location.href (`cart.html`);
+  window.location.href = `cart.html`;
 });
 let mainPage = document.querySelector(`.logo`);
 mainPage.addEventListener("click", () => {
-  window.location.href (`index.html`);
+  window.location.href = `index.html`;
 });
