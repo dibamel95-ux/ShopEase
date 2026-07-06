@@ -45,3 +45,23 @@
   border-top: 1px solid #ddd;
   padding-top: 15px;
 }
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none; 
+  padding: 10px 15px;
+  font-size: 20px;
+  background-color:
+  color: white;
+  border: none;
+  border-radius: 50%; 
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  z-index: 1000;
+}
+
+#backToTop:hover {
+  background-color: #555;
+}
