@@ -1,4 +1,18 @@
-let dataPro = JSON.parse(localStorage.getItem(`cartItems`)) || [];
+let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
+if (!localStorage.getItem(`currentUser`)) {
+  window.location.href = `login.html`;
+} else {
+  const loginBtn = document.querySelector(`.login-btn`);
+  loginBtn.innerHTML = `
+  <i class="fa-solid fa-user-check" style="color: black;"></i>
+  ${currentUser.name}
+  `;
+  loginBtn.addEventListener("click", () => {
+    document.querySelector(`.dropDown`).classList.toggle("showUl");
+  });
+}
+let dataPro =
+  JSON.parse(localStorage.getItem(`cartItems_${currentUser.id}`)) || [];
 function display(arr) {
   let container = document.getElementById(`container`);
   container.innerHTML = "";
@@ -27,7 +41,10 @@ function display(arr) {
       } else {
         dataPro.push(newObj);
       }
-      localStorage.setItem("cartItems", JSON.stringify(dataPro));
+      localStorage.setItem(
+        `cartItems_${currentUser.id}`,
+        JSON.stringify(dataPro),
+      );
       updateCartCount();
       showToast();
     });
@@ -107,7 +124,13 @@ window.onscroll = function () {
     btn.style.display = "none";
   }
 };
-
 document.getElementById("backToTop").onclick = function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+function logOut() {
+  localStorage.removeItem(`currentUser`);
+  window.location.href = `login.html`;
+}
+function myCart() {
+  window.location.href = `cart.html`;
+}
