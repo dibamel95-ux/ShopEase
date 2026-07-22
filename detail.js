@@ -1,4 +1,8 @@
-let dataPro = JSON.parse(localStorage.getItem(`cartItems`)) || [];
+if (!localStorage.getItem(`currentUser`)) {
+  window.location.href = `login.html`;
+}
+let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
+let dataPro = JSON.parse(localStorage.getItem(`cartItems_${currentUser.id}`)) || [];
 async function getProduct() {
   let params = new URLSearchParams(window.location.search);
   let id = params.get("id");
@@ -39,7 +43,7 @@ function displayProduct(product) {
     } else {
       dataPro.push(newObj);
     }
-    localStorage.setItem(`cartItems`, JSON.stringify(dataPro));
+    localStorage.setItem(`cartItems_${currentUser.id}`, JSON.stringify(dataPro));
     updateCartCount();
     showToast();
   });
@@ -62,7 +66,7 @@ function relatedPro(arr) {
   });
 }
 function updateCartCount() {
-  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  let cartItems = JSON.parse(localStorage.getItem(`cartItems_${currentUser.id}`)) || [];
   let total = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   document.getElementById("cart-count").innerHTML = total;
 }
