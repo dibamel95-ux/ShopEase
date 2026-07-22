@@ -1,4 +1,5 @@
-let cartItem = JSON.parse(localStorage.getItem(`cartItems`)) || [];
+let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
+let cartItem = JSON.parse(localStorage.getItem(`cartItems_${currentUser.id}`)) || [];
 let cartProduct = [];
 async function getData() {
   for (let item of cartItem) {
@@ -20,7 +21,11 @@ function display(arr) {
   <td> <img src="${prod.thumbnail}"></td>
   <td><h3>${prod.title}</h3></td>
   <td><p>Price: ${prod.price}</p></td>
-  <td><p> Quantity: ${prod.quantity}</p></td>
+  <td>
+  <button onclick="decreaseQty(${prod.id})">-</button>
+  <span>${prod.quantity}</span>
+  <button onclick="increaseQty(${prod.id})">+</button>
+  </td>
   <td><p>Total: ${prod.price * prod.quantity}</p></td>
   <td><button class="delete" onclick="deleteProduct(${prod.id})"> <span class="material-symbols-outlined">delete</span></button></td>
   </tr>`;
@@ -32,14 +37,35 @@ function display(arr) {
     cartTotal.textContent = `$${result.toFixed(2)}`;
   });
 }
-
+function increaseQty(id) {
+  let item = cartItem.find((p) => p.id === id);
+  if (item) {
+    item.quantity++;
+  }
+  localStorage.setItem(`cartItems_${currentUser.id}`, JSON.stringify(cartItem));
+  getData();
+}
+function decreaseQty(id) {
+  let item = cartItem.find((p) => p.id === id);
+  if (item) {
+    if (item.quantity > 1) {
+      item.quantity--;
+    } else {
+      cartItem = cartItem.filter((p) => p.id !== id);
+    }
+  }
+  localStorage.setItem(`cartItems_${currentUser.id}`, JSON.stringify(cartItem));
+  getData();
+}
 function deleteProduct(id) {
+  let confirmDelete = confirm("Are you sure you want to delete this product?");
+  if (confirmDelete) {
   cartProduct = cartProduct.filter((product) => product.id !== id);
   cartItem = cartItem.filter((item) => item.id !== id);
   localStorage.setItem("cartItems", JSON.stringify(cartItem));
   let cartTotal = document.getElementById("totalPrice");
   cartTotal.innerHTML = "0$";
-  display(cartProduct);
+  display(cartProduct) }
 }
 window.onscroll = function () {
   const btn = document.getElementById("backToTop");
