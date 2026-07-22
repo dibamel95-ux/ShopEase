@@ -33,6 +33,26 @@ td img {
   height: 70px;
   object-fit: contain;
 }
+button[onclick*="decreaseQty"],
+button[onclick*="increaseQty"] {
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button[onclick*="decreaseQty"]:hover,
+button[onclick*="increaseQty"]:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+
 .remove {
   border: none;
   background: red;
