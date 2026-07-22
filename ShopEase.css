@@ -92,6 +92,51 @@ header {
   font-size: 12px;
   font-weight: bold;
 }
+.login-btn {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  background: #fff;
+  color: #222;
+  transition: 0.3s;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  border: solid 1px black;
+}
+.login-btn:hover {
+  transform: scale(1.05);
+}
+.userMenu {
+  position: relative;
+}
+.dropDown {
+  display: none;
+  position: absolute;
+  width: 100%;
+  margin-top: 8px;
+}
+.showUl {
+  display: block;
+}
+.uList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
+}
+.elementList {
+  padding: 12px 18px;
+}
+.elementList:hover {
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 #container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
