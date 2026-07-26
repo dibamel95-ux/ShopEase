@@ -25,7 +25,7 @@ submit.addEventListener("click", () => {
       alert(`please check your Email / Password`);
     }
   } else {
-    alert(`enter your Email and Password`);
+    alert(`Please enter your Email and Password`);
   }
 });
 
