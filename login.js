@@ -20,7 +20,7 @@ submit.addEventListener("click", () => {
         email: exist.email,
       };
       localStorage.setItem(`currentUser`, JSON.stringify(currentUser));
-      window.location.href = "ShopEase.html";
+      window.location.href = "index.html";
     } else {
       alert(`please check your Email / Password`);
     }
