@@ -1,29 +1,26 @@
-# ShopEase E-commerce Project
+# 🛍️ ShopEase – E-commerce Web Application
 
-A clean and modern e-commerce storefront project designed to showcase product management, responsive design, and dynamic UI interaction.
+## 📖 Overview
+ShopEase is a responsive e-commerce web application built with HTML, CSS, and JavaScript. It allows users to browse products, view product details, search and filter items, manage a shopping cart, and authenticate through login and registration.
 
-## 🚀 About the Project
-This project was developed to practice frontend core concepts, including:
-- **Responsive Web Design**: Mobile-first approach using flexible layouts.
-- **Dynamic DOM Manipulation**: Creating and navigating product details.
-- **Logic-Driven Programming**: Implementing clean, reusable code structures.
+## ✨ Features
+* User Registration & Login
+* Product Listing using Fetch API
+* Product Details Page
+* Search Products
+* Filter by Category
+* Sort by Price
+* Shopping Cart Management
+* LocalStorage Persistence
+* Responsive Design
 
-## 🛠 Tech Stack
-- **HTML5**
-- **CSS3** (Flexbox/Grid, Responsive Design)
-- **JavaScript** (DOM Manipulation, Event Handling)
+## 🛠️ Technologies
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* Fetch API
+* LocalStorage
+* Font Awesome
 
-## 💡 Key Features
-- **Responsive Grid**: Automatically adapts to screen sizes.
-- **Product Details**: Dedicated page for individual product information.
-- **Clean UI**: Minimalist design focused on product clarity.
-
-## 📝 What I learned
-- Fetch API & async/await
-- DOM Manipulation
-- localStorage
-- URLSearchParams
-- Shopping Cart Logic
-- Product Details Page
-- Dynamic Rendering
-- Event Handling
+## 👩‍💻 Author
+**Amel Dib**
