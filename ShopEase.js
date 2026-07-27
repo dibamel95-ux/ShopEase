@@ -2,6 +2,7 @@ let currentUser = JSON.parse(localStorage.getItem(`currentUser`));
 if (!localStorage.getItem(`currentUser`)) {
   window.location.href = `login.html`;
 } else {
+  document.body.style.display = "block";
   const loginBtn = document.querySelector(`.login-btn`);
   loginBtn.innerHTML = `
   <i class="fa-solid fa-user-check" style="color: black;"></i>
