@@ -44,14 +44,12 @@ body {
 .login-header h2 span {
   font-weight: 300;
 }
-
-/* تنسيق الخانات */
 #container input {
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 15px;
   background: #ffffff;
-  border: 1px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
   border-radius: 8px;
   color: #1f2937;
   outline: none;
