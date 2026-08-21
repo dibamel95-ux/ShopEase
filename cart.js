@@ -19,8 +19,7 @@ function display(arr) {
   let container = document.getElementById(`container`);
   container.innerHTML = "";
 
-  let result = 0; // حساب المجموع الكلي خارج اللوب لتفادي تكراره خطأ
-
+  let result = 0;
   arr.forEach((prod) => {
     container.innerHTML += ` <tr>
   <td> <img src="${prod.thumbnail}"></td>
@@ -32,7 +31,7 @@ function display(arr) {
   <button onclick="increaseQty(${prod.id})">+</button>
   </td>
   <td><p>Total: ${prod.price * prod.quantity}</p></td>
-  <td><button class="delete" onclick="deleteProduct(${prod.id})"> <span class="material-symbols-outlined">delete</span></button></td>
+  <td><button class="delete" onclick="deleteProduct(${prod.id})"> <span class="material-symbols-outlined"></span></button></td>
   </tr>`;
 
     result += prod.price * prod.quantity;
