@@ -31,7 +31,7 @@ function display(arr) {
   <button onclick="increaseQty(${prod.id})">+</button>
   </td>
   <td><p>Total: ${prod.price * prod.quantity}</p></td>
-  <td><button class="delete" onclick="deleteProduct(${prod.id})"> <span class="material-symbols-outlined"></span></button></td>
+  <td><button class="delete" onclick="deleteProduct(${prod.id})"> <span class="material-symbols-outlined">delete</span></button></td>
   </tr>`;
 
     result += prod.price * prod.quantity;
